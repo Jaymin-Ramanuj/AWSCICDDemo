@@ -1,0 +1,84 @@
+############################################################
+#              .NET 8 / ASP.NET Core Web API               #
+############################################################
+
+# Build artifacts
+bin/
+obj/
+out/
+publish/
+
+# Visual Studio / JetBrains Rider
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# NuGet packages cache
+*.nupkg
+packages/
+# Enable if you use the global‑cache option:
+# ~/.nuget/packages/
+
+# Resharper & analyzers
+_ReSharper*/
+AnalyzerConfig.generated.dll
+
+# Logs & diagnostic dumps
+*.log
+logs/
+*.dmp
+*.stacktrace
+
+# Secrets & environment files
+.env
+.env.*
+secrets.json
+appsettings.*.Local.json
+appsettings.*.Development.json
+# Remove the next line if you *do* want to track default appsettings:
+appsettings.json
+
+# IIS / Kestrel publish settings
+Properties/launchSettings.json
+## Or keep it if your team needs shared launch profiles.
+
+# Certificate & HTTPS dev certs
+*.pfx
+*.p12
+
+# Coverage & test results
+TestResults/
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Rider / VS snapshot profiler
+*.timeline
+*.dotMemory
+*.dotTrace
+*.dotCover
+
+# Docker, Compose, & Kubernetes artifacts
+**/.docker/
+docker-compose.override.yml
+*.pid
+
+# Sonar & analysis
+.sonar/
+.scannerwork/
+
+# OS‑specific cruft
+.DS_Store
+Thumbs.db
+
+############################################################
+#                End of .gitignore                         #
+############################################################

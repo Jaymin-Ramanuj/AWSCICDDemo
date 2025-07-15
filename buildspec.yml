@@ -1,0 +1,27 @@
+# buildspec.yml  (for a plain zip‑deploy or Elastic Beanstalk deploy)
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 8.0          # <-- tells CodeBuild to pull the .NET 8 SDK
+    commands:
+      - echo "Install phase completed at $(date)"
+
+  pre_build:
+    commands:
+      - echo "Restoring packages..."
+      - dotnet restore
+
+  build:
+    commands:
+      - echo "Building & publishing..."
+      - dotnet publish -c Release -o ./out          # <-- change if you use multiple projects
+
+  post_build:
+    commands:
+      - echo "Build finished at $(date)"
+artifacts:
+  base-directory: out                               # <-- what to pass to the next stage
+  files:
+    - '**/*'
