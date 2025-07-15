@@ -6,7 +6,7 @@ phases:
     runtime-versions:
       dotnet: 8.0          # <-- tells CodeBuild to pull the .NET 8 SDK
     commands:
-      - echo "Install phase completed at $(date)"
+      - echo "Install phase completed"
 
   pre_build:
     commands:
@@ -20,7 +20,7 @@ phases:
 
   post_build:
     commands:
-      - echo "Build finished at $(date)"
+      - echo "Build finished at"
 artifacts:
   base-directory: out                               # <-- what to pass to the next stage
   files:
