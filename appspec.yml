@@ -1,0 +1,33 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/awscicddemo
+
+hooks:
+  BeforeInstall:
+    - runas: root
+      timeout: 60
+      location: 
+        inline:
+          - echo "Stopping existing .NET app if running..."
+          - pkill -f "dotnet AWSCICDDemo.dll" || true
+
+  AfterInstall:
+    - runas: root
+      timeout: 120
+      location:
+        inline:
+          - echo "Setting permissions and preparing for launch..."
+          - cd /var/www/awscicddemo
+          - chmod +x AWSCICDDemo.dll
+
+  ApplicationStart:
+    - runas: root
+      timeout: 60
+      location:
+        inline:
+          - echo "Starting AWSCICDDemo Web API..."
+          - cd /var/www/awscicddemo
+          - nohup dotnet AWSCICDDemo.dll > /dev/null 2>&1 &
