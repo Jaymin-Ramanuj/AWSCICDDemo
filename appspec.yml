@@ -7,24 +7,13 @@ files:
 
 hooks:
   BeforeInstall:
-    - runas: root
-      timeout: 60
-      inline:
-        - echo "Stopping existing .NET app if running..."
-        - pkill -f "dotnet AWSCICDDemo.dll" || true
+    - location: scripts/before_install.sh
+      runas: root
 
   AfterInstall:
-    - runas: root
-      timeout: 120
-      inline:
-        - echo "Setting permissions and preparing for launch..."
-        - cd /var/www/awscicddemo
-        - chmod +x AWSCICDDemo.dll
+    - location: scripts/after_install.sh
+      runas: root
 
   ApplicationStart:
-    - runas: root
-      timeout: 60
-      inline:
-        - echo "Starting AWSCICDDemo Web API..."
-        - cd /var/www/awscicddemo
-        - nohup dotnet AWSCICDDemo.dll > /dev/null 2>&1 &
+    - location: scripts/start_app.sh
+      runas: root
