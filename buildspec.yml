@@ -23,7 +23,7 @@ phases:
       - echo "Build finished at"
       - echo "Copying appspec.yml to artifact folder..."
       - cp appspec.yml ./out/
-      - cp ./scripts/* ./out/
+      - cp ./scripts/* ./out/scripts/
 artifacts:
   base-directory: out                               # <-- what to pass to the next stage
   files:
