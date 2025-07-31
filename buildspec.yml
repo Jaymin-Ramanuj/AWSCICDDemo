@@ -21,9 +21,10 @@ phases:
   post_build:
     commands:
       - echo "Build finished at"
-      - echo "Copying appspec.yml to artifact folder..."
-      - cp appspec.yml ./out/
+      - echo "Preparing final artifact package..."
+      - mkdir -p ./out/scripts                          # ensure destination exists
       - cp ./scripts/* ./out/scripts/
+      - cp appspec.yml ./out/
 artifacts:
   base-directory: out                               # <-- what to pass to the next stage
   files:
