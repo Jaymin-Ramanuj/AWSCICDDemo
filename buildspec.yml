@@ -25,3 +25,4 @@ artifacts:
   base-directory: out                               # <-- what to pass to the next stage
   files:
     - '**/*'
+    - 'appspec.yml'
