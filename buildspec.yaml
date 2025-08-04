@@ -15,7 +15,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest
       - echo Writing image definitions...
-      - printf '[{"name":"<ecs-container-name>","imageUri":"%s"}]' 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest > imagedefinitions.json
+      - printf '[{"name":"TestApp","imageUri":"%s"}]' 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
