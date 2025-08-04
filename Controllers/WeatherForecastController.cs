@@ -8,7 +8,7 @@ namespace AWSCICDDemo.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing cold", "Bracing xyz", "Chilly Monday", "Cool Bhau", "Mild Hot", "Warm But Good", "Balmy No Idea", "Hot Hot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
