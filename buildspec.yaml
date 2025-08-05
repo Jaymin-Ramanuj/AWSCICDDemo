@@ -8,12 +8,12 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t awscicddemo/firstrepo .
-      - docker tag awscicddemo/firstrepo:latest 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest
+      - docker build -t test-docker-on-ec2 .
+      - docker tag test-docker-on-ec2:latest 646362345234.dkr.ecr.us-east-1.amazonaws.com/test-docker-on-ec2:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest
+      - docker push 646362345234.dkr.ecr.us-east-1.amazonaws.com/test-docker-on-ec2:latest
       - echo Writing image definitions...
       - printf '[{"name":"TestApp","imageUri":"%s"}]' 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest > imagedefinitions.json
       - echo "Build finished at"
