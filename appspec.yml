@@ -10,7 +10,6 @@ hooks:
   AfterInstall:
     - location: scripts/deploy_docker.sh
       timeout: 300
-      runas: ec2-user
 
 # Commented code for normal deployment on EC2
 #  BeforeInstall:
