@@ -16,6 +16,13 @@ phases:
       - docker push 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest
       - echo Writing image definitions...
       - printf '[{"name":"TestApp","imageUri":"%s"}]' 646362345234.dkr.ecr.us-east-1.amazonaws.com/awscicddemo/firstrepo:latest > imagedefinitions.json
+      - echo "Build finished at"
+      - echo "Preparing final artifact package..."
+      - mkdir -p ./out/scripts                          # ensure destination exists
+      - cp ./scripts/* ./out/scripts/
+      - cp appspec.yml ./out/
+      - cp imagedefinitions.json ./out/ 
 artifacts:
+  base-directory: out
   files:
-    - imagedefinitions.json
+    - '**/*'

@@ -6,14 +6,21 @@ files:
     destination: /var/www/awscicddemo
 
 hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      runas: root
-
+  # To deploy and run docker image on EC2
   AfterInstall:
-    - location: scripts/after_install.sh
-      runas: root
+    - location: scripts/deploy_docker.sh
+      timeout: 300
+      runas: ec2-user
 
-  ApplicationStart:
-    - location: scripts/start_app.sh
-      runas: root
+# Commented code for normal deployment on EC2
+#  BeforeInstall:
+#    - location: scripts/before_install.sh
+#      runas: root
+
+#  AfterInstall:
+#    - location: scripts/after_install.sh
+#      runas: root
+
+#  ApplicationStart:
+#    - location: scripts/start_app.sh
+#      runas: root
