@@ -26,6 +26,6 @@ docker rm Test-Docker-App || true
 
 # Run new container
 echo "Running new container..."
-docker run -d --name Test-Docker-App -p 80:3000 $IMAGE_URI
+docker run -d --name Test-Docker-App -p 80:80 $IMAGE_URI
 
 echo "Deployment complete!"
